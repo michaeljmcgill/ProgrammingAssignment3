@@ -15,7 +15,7 @@ file.rename(".\\UCI HAR Dataset", "UCI_HAR_Dataset")
 
 # Load the required files into R
 
-features <- read.table(".\\UCI_HAR_Dataset\\features.txt")
+features <- read.table(".\\UCI_HAR_Dataset\\features.txt")[[2]]
 activity_lables <- read.table(".\\UCI_HAR_Dataset\\activity_labels.txt",
                               colClasses = c("integer", "character"))
 
@@ -40,17 +40,15 @@ merged_data_ungrouped <- rbind(x_train, x_test)
 ### Extract only the measurements on the mean and standard deviation
 ### for each measurement
 
-# Find the mean and st dev of each column
+# Create a boolean mask to identify columns including "mean()" and "std()"
 
-mean_ungrouped <- summarize_all(merged_data_ungrouped, mean)
-sd_ungrouped <- summarize_all(merged_data_ungrouped, sd)
+features_boolean <- sapply("mean()", grepl, features, fixed = TRUE) |
+                    sapply("std()", grepl, features, fixed = TRUE)
 
-mean_and_sd_ungrouped <- data.frame(mean = t(mean_ungrouped),
-                                    sd = t(sd_ungrouped))
+# Subset out unneeded measurements from the datasets
 
-# label each measurement
-
-rownames(mean_and_sd_ungrouped) <- paste(features[,1], features[,2])
+merged_data_ungrouped <- merged_data_ungrouped[,features_boolean]
+features <- features[features_boolean]
 
 ### QUESTION 3
 ### Use descriptive activity names to name the activities in the data set
@@ -66,31 +64,44 @@ y_train[[1]] <- factor(y_train[[1]],
 ### QUESTION 4
 ### Appropriately label the data set with descriptive variable names
 
-colnames(x_train) <- paste(features[,1],features[,2])
-colnames(y_train) <- "activity_label"
-colnames(subject_train) <- "subject"
+# Create a function to tidy each measurement name
 
-colnames(x_test) <- paste(features[,1],features[,2])
-colnames(y_test) <- "activity_label"
-colnames(subject_test) <- "subject"
+cleanName <- function(x) {
+        
+        name <- gsub("-", "_", x)
+        name <- gsub("\\()", "", name)
+        name <- gsub("mean", "Mean", name)
+        name <- gsub("std", "StandardDeviation", name)
+        
+}
 
-merged_train <- cbind(subject_train, y_train, x_train)
-merged_test <- cbind(subject_test, y_test, x_test)
+# Apply function to all names
+
+features <- sapply(features, cleanName)
+
+# Apply the measurement names to each column in the merged data set
+
+colnames(merged_data_ungrouped) <- features
 
 ### QUESTION 5
 ### Create a second, independent tidy data set with the
 ### average of each variable for each activity and each subject
 
-# Merge and group the testing and training datasets
+# Group the testing and training datasets by subject and activity
 
-merged_data_grouped <- rbind(merged_train, merged_test)
+subject <- rbind(subject_train, subject_test)
+colnames(subject) <- "subject"
+
+y <- rbind(y_train, y_test)
+colnames(y) <- "activity_label"
+
+merged_data_grouped <- cbind(subject, y, merged_data_ungrouped)
 merged_data_grouped <- group_by(merged_data_grouped, activity_label, subject)
 
 # Find the mean of each column
 
-mean_grouped <- summarize_all(merged_data_grouped, mean)
+average_grouped <- summarize_all(merged_data_grouped, mean)
 
-### EXTRACT THE TIDY DATASETS
+### EXTRACT THE TIDY DATASET
 
-write.csv(mean_and_sd_ungrouped, file = ".\\tidydata1.csv")
-write.csv(mean_grouped, file = ".\\tidydata2.csv")
+write.csv(average_grouped, file = ".\\tidydata.csv")
