@@ -32,23 +32,23 @@ Finally a Fast Fourier Transform (FFT) was applied to some of these signals prod
 These signals were used to estimate variables of the feature vector for each pattern:  
 '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
 
-tBodyAcc-XYZ
-tGravityAcc-XYZ
-tBodyAccJerk-XYZ
-tBodyGyro-XYZ
-tBodyGyroJerk-XYZ
-tBodyAccMag
-tGravityAccMag
-tBodyAccJerkMag
-tBodyGyroMag
-tBodyGyroJerkMag
-fBodyAcc-XYZ
-fBodyAccJerk-XYZ
-fBodyGyro-XYZ
-fBodyAccMag
-fBodyAccJerkMag
-fBodyGyroMag
-fBodyGyroJerkMag
+- tBodyAcc-XYZ
+- tGravityAcc-XYZ
+- tBodyAccJerk-XYZ
+- tBodyGyro-XYZ
+- tBodyGyroJerk-XYZ
+- tBodyAccMag
+- tGravityAccMag
+- tBodyAccJerkMag
+- tBodyGyroMag
+- tBodyGyroJerkMag
+- fBodyAcc-XYZ
+- fBodyAccJerk-XYZ
+- fBodyGyro-XYZ
+- fBodyAccMag
+- fBodyAccJerkMag
+- fBodyGyroMag
+- fBodyGyroJerkMag
 
 ======================================
 
@@ -56,73 +56,73 @@ Columns in the tidy dataset:
 ======================================
 
 *Grouping variables:*
-activity_label
-subject
+- activity_label
+- subject
 
 *Measurement variables:*
-tBodyAcc_Mean_X
-tBodyAcc_Mean_Y
-tBodyAcc_Mean_Z
-tBodyAcc_StandardDeviation_X
-tBodyAcc_StandardDeviation_Y
-tBodyAcc_StandardDeviation_Z
-tGravityAcc_Mean_X
-tGravityAcc_Mean_Y
-tGravityAcc_Mean_Z
-tGravityAcc_StandardDeviation_X
-tGravityAcc_StandardDeviation_Y
-tGravityAcc_StandardDeviation_Z
-tBodyAccJerk_Mean_X
-tBodyAccJerk_Mean_Y
-tBodyAccJerk_Mean_Z
-tBodyAccJerk_StandardDeviation_X
-tBodyAccJerk_StandardDeviation_Y
-tBodyAccJerk_StandardDeviation_Z
-tBodyGyro_Mean_X
-tBodyGyro_Mean_Y
-tBodyGyro_Mean_Z
-tBodyGyro_StandardDeviation_X
-tBodyGyro_StandardDeviation_Y
-tBodyGyro_StandardDeviation_Z
-tBodyGyroJerk_Mean_X
-tBodyGyroJerk_Mean_Y
-tBodyGyroJerk_Mean_Z
-tBodyGyroJerk_StandardDeviation_X
-tBodyGyroJerk_StandardDeviation_Y
-tBodyGyroJerk_StandardDeviation_Z
-tBodyAccMag_Mean
-tBodyAccMag_StandardDeviation
-tGravityAccMag_Mean
-tGravityAccMag_StandardDeviation
-tBodyAccJerkMag_Mean
-tBodyAccJerkMag_StandardDeviation
-tBodyGyroMag_Mean
-tBodyGyroMag_StandardDeviation
-tBodyGyroJerkMag_Mean
-tBodyGyroJerkMag_StandardDeviation
-fBodyAcc_Mean_X
-fBodyAcc_Mean_Y
-fBodyAcc_Mean_Z
-fBodyAcc_StandardDeviation_X
-fBodyAcc_StandardDeviation_Y
-fBodyAcc_StandardDeviation_Z
-fBodyAccJerk_Mean_X
-fBodyAccJerk_Mean_Y
-fBodyAccJerk_Mean_Z
-fBodyAccJerk_StandardDeviation_X
-fBodyAccJerk_StandardDeviation_Y
-fBodyAccJerk_StandardDeviation_Z
-fBodyGyro_Mean_X
-fBodyGyro_Mean_Y
-fBodyGyro_Mean_Z
-fBodyGyro_StandardDeviation_X
-fBodyGyro_StandardDeviation_Y
-fBodyGyro_StandardDeviation_Z
-fBodyAccMag_Mean
-fBodyAccMag_StandardDeviation
-fBodyBodyAccJerkMag_Mean
-fBodyBodyAccJerkMag_StandardDeviation
-fBodyBodyGyroMag_Mean
-fBodyBodyGyroMag_StandardDeviation
-fBodyBodyGyroJerkMag_Mean
-fBodyBodyGyroJerkMag_StandardDeviation
+- tBodyAcc_Mean_X
+- tBodyAcc_Mean_Y
+- tBodyAcc_Mean_Z
+- tBodyAcc_StandardDeviation_X
+- tBodyAcc_StandardDeviation_Y
+- tBodyAcc_StandardDeviation_Z
+- tGravityAcc_Mean_X
+- tGravityAcc_Mean_Y
+- tGravityAcc_Mean_Z
+- tGravityAcc_StandardDeviation_X
+- tGravityAcc_StandardDeviation_Y
+- tGravityAcc_StandardDeviation_Z
+- tBodyAccJerk_Mean_X
+- tBodyAccJerk_Mean_Y
+- tBodyAccJerk_Mean_Z
+- tBodyAccJerk_StandardDeviation_X
+- tBodyAccJerk_StandardDeviation_Y
+- tBodyAccJerk_StandardDeviation_Z
+- tBodyGyro_Mean_X
+- tBodyGyro_Mean_Y
+- tBodyGyro_Mean_Z
+- tBodyGyro_StandardDeviation_X
+- tBodyGyro_StandardDeviation_Y
+- tBodyGyro_StandardDeviation_Z
+- tBodyGyroJerk_Mean_X
+- tBodyGyroJerk_Mean_Y
+- tBodyGyroJerk_Mean_Z
+- tBodyGyroJerk_StandardDeviation_X
+- tBodyGyroJerk_StandardDeviation_Y
+- tBodyGyroJerk_StandardDeviation_Z
+- tBodyAccMag_Mean
+- tBodyAccMag_StandardDeviation
+- tGravityAccMag_Mean
+- tGravityAccMag_StandardDeviation
+- tBodyAccJerkMag_Mean
+- tBodyAccJerkMag_StandardDeviation
+- tBodyGyroMag_Mean
+- tBodyGyroMag_StandardDeviation
+- tBodyGyroJerkMag_Mean
+- tBodyGyroJerkMag_StandardDeviation
+- fBodyAcc_Mean_X
+- fBodyAcc_Mean_Y
+- fBodyAcc_Mean_Z
+- fBodyAcc_StandardDeviation_X
+- fBodyAcc_StandardDeviation_Y
+- fBodyAcc_StandardDeviation_Z
+- fBodyAccJerk_Mean_X
+- fBodyAccJerk_Mean_Y
+- fBodyAccJerk_Mean_Z
+- fBodyAccJerk_StandardDeviation_X
+- fBodyAccJerk_StandardDeviation_Y
+- fBodyAccJerk_StandardDeviation_Z
+- fBodyGyro_Mean_X
+- fBodyGyro_Mean_Y
+- fBodyGyro_Mean_Z
+- fBodyGyro_StandardDeviation_X
+- fBodyGyro_StandardDeviation_Y
+- fBodyGyro_StandardDeviation_Z
+- fBodyAccMag_Mean
+- fBodyAccMag_StandardDeviation
+- fBodyBodyAccJerkMag_Mean
+- fBodyBodyAccJerkMag_StandardDeviation
+- fBodyBodyGyroMag_Mean
+- fBodyBodyGyroMag_StandardDeviation
+- fBodyBodyGyroJerkMag_Mean
+- fBodyBodyGyroJerkMag_StandardDeviation
