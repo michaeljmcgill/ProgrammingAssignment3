@@ -104,4 +104,4 @@ average_grouped <- summarize_all(merged_data_grouped, mean)
 
 ### EXTRACT THE TIDY DATASET
 
-write.csv(average_grouped, file = ".\\tidydata.csv")
+write.table(average_grouped, file = ".\\tidydata.txt", row.names = FALSE)
